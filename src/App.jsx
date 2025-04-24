@@ -29,9 +29,30 @@ function CheckForWinner(squares) {
     return isWinner;
 }
 
-export default function Board() {
+export default function Game() {
     const [squares, setSquares] = useState(Array(9).fill(null));
     const [xIsNext, setXIsNext] = useState(true);
+    const [status, setStatus] = useState("");
+
+    function handleReset() {
+        setXIsNext(true);
+        let nextSquares = Array(9).fill(null);
+        setSquares(nextSquares);
+    }
+
+    return (
+        <>
+            <div className="status">
+                <button onClick={handleReset}>Reset</button>
+                <span>{status}</span>
+            </div>
+            <Board squares={squares} xIsNext={xIsNext}/>
+        </>
+    );
+}
+
+function Board() {
+    
 
     const winner = CheckForWinner(squares);
 
@@ -44,15 +65,9 @@ export default function Board() {
         }
     }
 
-    function handleReset() {
-        setXIsNext(true);
-        let nextSquares = Array(9).fill(null);
-        setSquares(nextSquares);
-    }
-
     return (
         <>
-            <div><button onClick={handleReset}>Reset</button></div>
+            
             <div className="board-row">
                 <Square value={squares[0]} onSquareClick={() => handleOnClick(0)} />
                 <Square value={squares[1]} onSquareClick={() => handleOnClick(1)} />

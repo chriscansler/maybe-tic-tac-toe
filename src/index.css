@@ -83,6 +83,9 @@ body {
 
 .status {
     margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    width: calc(var(--square-size) * 3);
 }
 
 .game {
