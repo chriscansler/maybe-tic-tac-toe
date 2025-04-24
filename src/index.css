@@ -1,5 +1,6 @@
 :root {
     --square-size: 136px;
+    --border-color: #999;
 }
 
 * {
@@ -62,7 +63,7 @@ body {
 
 .square {
     background: #fff;
-    border: 1px solid #999;
+    border: 1px solid var(--border-color);
     float: left;
     font-size: calc(var(--square-size) * 0.7);
     font-weight: bold;
@@ -95,4 +96,25 @@ body {
 
 .game-info {
     margin-left: 20px;
+}
+
+.game-board {
+    display: flex;
+}
+
+.game-history {
+    width: calc(var(--square-size) * 1.5);
+    border: 1px solid var(--border-color);
+    margin-left: 15px;
+    margin-top: 30px;
+}
+
+.game-history--title {
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.game-history-item {
+    margin: 5px 0 5px 0;
 }
